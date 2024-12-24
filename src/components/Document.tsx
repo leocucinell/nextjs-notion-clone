@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { FormEvent, useState, useTransition, useEffect } from "react";
 import { db } from "../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import Editor from "./Editor";
 
 function Document({ id }: { id: string }) {
   if (!id) return null;
@@ -48,7 +49,9 @@ function Document({ id }: { id: string }) {
         {/* Manage Users */}
         {/* Avatars */}
       </div>
+      <hr className="pb-10" />
       {/* Collaberative Editor */}
+      <Editor />
     </div>
   );
 }
