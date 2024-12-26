@@ -22,12 +22,15 @@ function Avatars() {
             <Tooltip key={user?.id + i}>
               <TooltipTrigger>
                 <Avatar>
-                  <AvatarImage src={user?.info?.avatar} />
+                  <AvatarImage
+                    src={user?.info?.avatar}
+                    className="border-2 hover:z-50"
+                  />
                   <AvatarFallback>{user?.info?.name}</AvatarFallback>
                 </Avatar>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{user?.info?.name}</p>
+                <p>{self?.id === user?.id ? "You" : user?.info?.name}</p>
               </TooltipContent>
             </Tooltip>
           ))}
