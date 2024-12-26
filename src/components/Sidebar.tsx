@@ -75,42 +75,48 @@ function Sidebar() {
       <NewDocumentButton />
 
       {/* Owned documents */}
-      {groupedData.owner.length === 0 ? (
-        <h2 className="text-gray-500 font-semibold text-sm ">
-          No documents found
-        </h2>
-      ) : (
-        <div className="flex py-4 flex-col space-y-4 md:max-w-34">
-          <h2 className="text-gray-500 font-semibold text-sm ">My documents</h2>
-          {groupedData.owner.map((doc) => {
-            // return <p key={doc.roomId}>{doc.roomId}</p>;
-            return (
-              <SidebarOption
-                key={doc.roomId}
-                id={doc.roomId}
-                href={`/doc/${doc.roomId}`}
-              />
-            );
-          })}
-        </div>
-      )}
+      <div className="flex py-4 flex-col space-y-4 md:max-w-34">
+        {groupedData.owner.length === 0 ? (
+          <h2 className="text-gray-500 font-semibold text-sm ">
+            No documents found
+          </h2>
+        ) : (
+          <>
+            <h2 className="text-gray-500 font-semibold text-sm ">
+              My documents
+            </h2>
+            {groupedData.owner.map((doc) => {
+              // return <p key={doc.roomId}>{doc.roomId}</p>;
+              return (
+                <SidebarOption
+                  key={doc.roomId}
+                  id={doc.roomId}
+                  href={`/doc/${doc.roomId}`}
+                />
+              );
+            })}
+          </>
+        )}
 
-      {/* Shared documents */}
-      {groupedData.editor.length > 0 && (
-        <div className="flex py-4 flex-col space-y-4 md:max-w-34">
-          <h2 className="text-gray-500 font-semibold text-sm ">My documents</h2>
-          {groupedData.editor.map((doc) => {
-            // return <p key={doc.roomId}>{doc.roomId}</p>;
-            return (
-              <SidebarOption
-                key={doc.roomId}
-                id={doc.roomId}
-                href={`/doc/${doc.roomId}`}
-              />
-            );
-          })}
-        </div>
-      )}
+        {/* Shared documents */}
+        {groupedData.editor.length > 0 && (
+          <div className="flex py-4 flex-col space-y-4 md:max-w-34">
+            <h2 className="text-gray-500 font-semibold text-sm ">
+              My documents
+            </h2>
+            {groupedData.editor.map((doc) => {
+              // return <p key={doc.roomId}>{doc.roomId}</p>;
+              return (
+                <SidebarOption
+                  key={doc.roomId}
+                  id={doc.roomId}
+                  href={`/doc/${doc.roomId}`}
+                />
+              );
+            })}
+          </div>
+        )}
+      </div>
     </>
   );
   return (
