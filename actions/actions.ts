@@ -88,3 +88,23 @@ export async function inviteUserToDocument(roomId: string, email: string) {
     return { success: false };
   }
 }
+
+export async function removeUserFromDocument(roomId: string, userId: string) {
+  // retrieve session and make sure the user is authenticated
+  auth.protect();
+
+  try {
+    // find the user within the users collection and delete the document from their rooms collection
+    await adminDb
+      .collection("users")
+      .doc(userId)
+      .collection("rooms")
+      .doc(roomId)
+      .delete();
+
+    return { success: true };
+  } catch (error) {
+    console.log("ERROR", error);
+    return { success: false };
+  }
+}

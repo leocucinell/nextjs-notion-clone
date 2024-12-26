@@ -9,6 +9,8 @@ import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
 import InviteUser from "./InviteUser";
+import ManageUsers from "./ManageUsers";
+import Avatars from "./Avatars";
 
 function Document({ id }: { id: string }) {
   if (!id) return null;
@@ -57,9 +59,11 @@ function Document({ id }: { id: string }) {
           {/* Render: Delete document button */}
         </form>
       </div>
-      <div>
+      <div className="flex max-w-6xl mx-auto justify-between items-center">
         {/* Manage Users */}
+        <ManageUsers />
         {/* Avatars */}
+        <Avatars />
       </div>
       <hr className="pb-10" />
       {/* Collaberative Editor */}
