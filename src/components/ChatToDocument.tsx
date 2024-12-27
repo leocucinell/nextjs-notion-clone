@@ -37,7 +37,7 @@ function ChatToDocument({ doc }: { doc: Y.Doc }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            question,
+            question: input,
             documentData,
           }),
         }
