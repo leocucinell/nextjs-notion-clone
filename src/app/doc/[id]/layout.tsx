@@ -6,9 +6,11 @@ async function DocLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { id: string };
+  params: Promise<{ id: string }>; // Adjust the type
 }) {
-  await auth.protect();
+  await auth.protect(); // Protect route
+
+  // Await params since it's a Promise
   const { id } = await params;
 
   return <RoomProviderWrapper roomId={id}>{children}</RoomProviderWrapper>;
